@@ -12,6 +12,10 @@ Segmentation model is used to segment the tumor in Breast MRI.
 
 https://www.kaggle.com/datasets/aryashah2k/breast-ultrasound-images-dataset
 
+# Preprocessing
+
+I have used Square padding, and resize both images and mask, after which images were normalized.
+
 # Architecture
 
 I have used UNET Architecture, with resnet as backbone.
