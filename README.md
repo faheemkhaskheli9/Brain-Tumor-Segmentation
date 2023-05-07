@@ -8,5 +8,10 @@ This code first merse all masks and labels, to create single mask representing t
 
 Segmentation model is used to segment the tumor in Breast MRI.
 
+# Dataset
+
+https://www.kaggle.com/datasets/aryashah2k/breast-ultrasound-images-dataset
+
 # Architecture
+
 I have used UNET Architecture, with resnet as backbone.
