@@ -1,0 +1,29 @@
+# Pinned dependencies for breast-tumor-segmentation.ipynb (repo name predates
+# a rename; the notebook and dataset are breast ultrasound, not brain).
+#
+# IMPORTANT environment constraint, verified empirically (see tests/):
+# `segmentation_models` (last released 2020) hard-imports Keras-2-only
+# internals (`keras.utils.generic_utils.get_custom_objects`) that no longer
+# exist once TensorFlow bundles Keras 3 (TF >= 2.16) or even on TF 2.10-2.15's
+# newer Keras 2 (`get_custom_objects` was moved off `generic_utils` by Keras
+# 2.12). The only combination that actually imports *and* runs a forward/
+# train step end-to-end (verified with a tiny synthetic image, no GPU, no
+# pretrained-weight download) is TensorFlow 2.9.x, which in turn only ships
+# wheels for Python 3.7-3.10. Use Python 3.9 or 3.10 to run this notebook.
+numpy>=1.21,<1.24
+scipy>=1.9,<2.0
+opencv-python-headless>=4.5,<6.0
+matplotlib>=3.5,<4.0
+tensorflow>=2.9,<2.10
+# segmentation_models's own dependency chain (image-classifiers, efficientnet)
+# pulls scikit-image; pinned <0.20 so it resolves to a prebuilt wheel under
+# numpy<1.24 instead of trying to compile against numpy>=2 headers.
+scikit-image>=0.19,<0.20
+segmentation-models==1.0.1
+image-classifiers==1.0.0
+efficientnet==1.0.0
+keras-applications>=1.0.8,<1.1
+
+# dev / test
+pytest>=7.0
+packaging>=21.0
