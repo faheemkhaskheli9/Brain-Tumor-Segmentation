@@ -33,3 +33,24 @@ python -m venv .venv && source .venv/bin/activate   # Python 3.9 or 3.10
 pip install -r requirements.txt
 pytest tests/
 ```
+
+# Usage
+
+`scripts/segment.py` is a CLI entrypoint that runs the pipeline end to end
+(`src/preprocessing.py` + `src/model.py`) on one image and writes the
+predicted tumor mask to disk. With no arguments it runs against the tiny
+synthetic sample image checked into `assets/sample_images/` (no real patient
+data -- see `scripts/generate_sample_assets.py`):
+
+```bash
+python scripts/segment.py
+# Wrote predicted mask to examples/output/predicted_mask.png
+
+python scripts/segment.py --image path/to/scan.png --output out/mask.png
+```
+
+A VS Code launch configuration ("Run segmentation CLI (sample image)") runs
+the same entrypoint; see `.vscode/launch.json`.
+
+See `docs/architecture.md` for the full pipeline breakdown and
+`docs/evaluation.md` for metrics/result log.

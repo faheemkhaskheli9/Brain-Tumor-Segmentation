@@ -18,6 +18,15 @@ data/processed/
 # Notebooks
 .ipynb_checkpoints/
 
+# CLI run output (scripts/segment.py) -- regenerated on every run, not
+# checked in; assets/sample_images/ (the CLI's real *input*) is committed.
+examples/output/
+
+# Local Python 3.9/3.10 venv used to run the pinned TF/segmentation_models
+# stack (see requirements.txt); .venv/ above already covers the default
+# venv name, this covers the version-suffixed one used for that stack.
+.venv310/
+
 # OS/IDE
 .DS_Store
 .idea/
