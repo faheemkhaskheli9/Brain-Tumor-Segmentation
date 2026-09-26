@@ -1,0 +1,16 @@
+{
+  "model": {
+    "architecture": "unet",
+    "backbone": "resnet34",
+    "input_size": 256,
+    "channels": 1,
+    "classes": 2,
+    "encoder_weights": null
+  },
+  "training": {
+    "epochs": 100,
+    "batch_size": 16,
+    "learning_rate": 0.00001,
+    "seed": 42
+  }
+}
